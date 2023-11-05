@@ -1,7 +1,7 @@
 use
     taskdb;
 
-CREATE TABLE `tasks`
+CREATE TABLE `task`
 (
     `id`           BIGINT       NOT NULL AUTO_INCREMENT,
     `description`  VARCHAR(255) NOT NULL,
