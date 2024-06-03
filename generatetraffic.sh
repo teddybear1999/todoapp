@@ -24,13 +24,13 @@ generate_traffic() {
             if [ "$get_task_counter" -gt 21000 ]; then
                 get_task_counter=1
             fi
-        elif (( r <= 605 )); then
+        elif (( r <= 650 )); then
             # GET LIST OF COMPLETED TASKS (0.5% chance)
             curl -s -X GET "http://localhost:8080/tasks/completed" > /dev/null
-        elif (( r <= 610 )); then
+        elif (( r <= 700 )); then
             # GET LIST OF UNCOMPLETED TASKS (0.5% chance)
             curl -s -X GET "http://localhost:8080/tasks/uncompleted" > /dev/null
-        elif (( r <= 700 )); then
+        elif (( r <= 705 )); then
             # CREATE TASKS WITH POST METHOD (9% chance)
             month=$(printf "%02d" $((RANDOM % 12 + 1)))
             day=$(printf "%02d" $((RANDOM % 28 + 1)))
@@ -41,21 +41,21 @@ generate_traffic() {
             curl -s -X POST "http://localhost:8080/tasks/" \
                  -H "Content-Type: application/json" \
                  -d "$json_body" > /dev/null
-        elif (( r <= 750 )); then
+        elif (( r <= 755 )); then
             # UPDATE STATUS TO TRUE (5% chance)
             curl -s -X PUT "http://localhost:8080/tasks/${update_status_true_counter}/completion?isCompleted=true" > /dev/null
             ((update_status_true_counter--))
             if [ $update_status_true_counter -lt 1 ]; then
                 update_status_true_counter=21000
             fi
-        elif (( r <= 800 )); then
+        elif (( r <= 805 )); then
             # UPDATE STATUS TO FALSE (5% chance)
             curl -s -X PUT "http://localhost:8080/tasks/${update_status_false_counter}/completion?isCompleted=false" > /dev/null
             ((update_status_false_counter++))
             if [ "$update_status_false_counter" -gt 21000 ]; then
                 update_status_false_counter=1
             fi
-        elif (( r <= 850 )); then
+        elif (( r <= 855 )); then
             # UPDATE TASK DESCRIPTION (5% chance)
             json_body="description${update_task_description_counter}"
             curl -s -X PUT "http://localhost:8080/tasks/${update_task_description_counter}/description" \
@@ -65,7 +65,7 @@ generate_traffic() {
             if [ $update_task_description_counter -lt 1 ]; then
                 update_task_description_counter=21000
             fi
-        elif (( r <= 860 )); then
+        elif (( r <= 865 )); then
             # DELETE TASKS (1% chance)
             curl -s -X DELETE "http://localhost:8080/tasks/${delete_task_counter}" > /dev/null
             ((delete_task_counter++))
