@@ -7,7 +7,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Random;
 
 @Controller
 @RequestMapping("/tasks")
@@ -38,6 +41,17 @@ public class TaskController {
     @ResponseBody
     public List<Task> getUncompletedTasks() {
         return taskService.findAllUncompletedTasks();
+    }
+
+    // Add new endpoint to return true or false randomly
+    @GetMapping("/randomBoolean")
+    @ResponseBody
+    public Map<String, Boolean> getRandomBoolean() {
+        Random random = new Random();
+        boolean randomBoolean = random.nextBoolean();
+        Map<String, Boolean> response = new HashMap<>();
+        response.put("result", randomBoolean);
+        return response;
     }
 
     // Create a new task

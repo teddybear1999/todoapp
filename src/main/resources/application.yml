@@ -3,3 +3,6 @@ spring:
     url: jdbc:mysql://localhost:3306/taskdb
     username: user
     password: password
+
+    # root password: new_password
+    # command to run agent: java -XX:+HeapDumpOnOutOfMemoryError -XX:OnOutOfMemoryError='kill -9 %p' -jar db-agent.jar
