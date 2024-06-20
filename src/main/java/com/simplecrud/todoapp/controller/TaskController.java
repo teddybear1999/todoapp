@@ -90,4 +90,10 @@ public class TaskController {
     public void deleteTask(@PathVariable Long id) {
         taskService.deleteTask(id);
     }
+
+    @DeleteMapping("/error")
+    @ResponseBody
+    public ResponseEntity<String> alwaysDeleteError() {
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("This DELETE endpoint always returns an error.");
+    }
 }
