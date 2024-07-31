@@ -57,11 +57,7 @@ public class TaskController {
     // test for chinese signs
     @GetMapping("/chinese")
     public ResponseEntity<String> 获取数据() {
-        try {
-            throw new Exception("模拟异常");
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("服务器内部错误");
-        }
+        throw new RuntimeException("模拟异常");
     }
 
     // Create a new task
