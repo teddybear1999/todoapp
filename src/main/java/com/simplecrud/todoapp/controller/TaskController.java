@@ -57,12 +57,8 @@ public class TaskController {
 
     // test for chinese signs
     @GetMapping("/chinese")
-    public ResponseEntity<String> 获取数据() {
-        try {
-            throw new EmptyResultDataAccessException("模拟异常", 1);
-        } catch (EmptyResultDataAccessException e) {
-            return new ResponseEntity<>("模拟异常", HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+    public String 获取数据() {
+        throw new EmptyResultDataAccessException("模拟异常", 1);
     }
 
     // Create a new task
