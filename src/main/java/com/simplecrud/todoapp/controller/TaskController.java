@@ -64,7 +64,6 @@ public class TaskController {
             return new ResponseEntity<>("模拟异常", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-    }
 
     // Create a new task
     @PostMapping
