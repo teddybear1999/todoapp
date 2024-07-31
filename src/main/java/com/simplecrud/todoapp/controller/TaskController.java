@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.dao.EmptyResultDataAccessException;
 
 import java.util.HashMap;
 import java.util.List;
@@ -57,7 +58,7 @@ public class TaskController {
     // test for chinese signs
     @GetMapping("/chinese")
     public ResponseEntity<String> 获取数据() {
-        throw new RuntimeException("模拟异常");
+        throw new EmptyResultDataAccessException("模拟异常", 1);
     }
 
     // Create a new task
