@@ -7,6 +7,6 @@ while true; do
     if [ "$delete_task_counter" -gt 6999 ]; then
         delete_task_counter=6900
     fi
-    sleep 0.08
+    sleep 0.2
 done
 
