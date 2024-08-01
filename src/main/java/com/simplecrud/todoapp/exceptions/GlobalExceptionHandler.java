@@ -10,6 +10,6 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(CustomChineseException.class)
     public ResponseEntity<String> handleCustomException(CustomChineseException ex) {
-        return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }
