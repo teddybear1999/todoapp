@@ -57,6 +57,7 @@ public class TaskController {
 
     // test for chinese signs
     @GetMapping("/chinese")
+    @ResponseBody
     public String 获取数据() {
         throw new EmptyResultDataAccessException("模拟异常", 1);
     }
