@@ -2,11 +2,11 @@ package com.simplecrud.todoapp.controller;
 
 import com.simplecrud.todoapp.model.Task;
 import com.simplecrud.todoapp.service.TaskService;
+import com.simplecrud.todoapp.exceptions.CustomChineseException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.dao.EmptyResultDataAccessException;
 
 import java.util.HashMap;
 import java.util.List;
@@ -59,7 +59,7 @@ public class TaskController {
     @GetMapping("/chinese")
     @ResponseBody
     public String 获取数据() {
-        throw new EmptyResultDataAccessException("模拟异常", 1);
+        throw new CustomChineseException("模拟异常");
     }
 
     // Create a new task
