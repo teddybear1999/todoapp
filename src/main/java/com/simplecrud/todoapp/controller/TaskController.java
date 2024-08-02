@@ -1,5 +1,6 @@
 package com.simplecrud.todoapp.controller;
 
+import com.simplecrud.todoapp.exceptions.自定义中文异常;
 import com.simplecrud.todoapp.model.Task;
 import com.simplecrud.todoapp.service.TaskService;
 import com.simplecrud.todoapp.exceptions.CustomChineseException;
@@ -59,7 +60,13 @@ public class TaskController {
     @GetMapping("/chinese")
     @ResponseBody
     public String 获取数据() {
-        throw new CustomChineseException("模拟异常");
+        Random random = new Random();
+        if (random.nextBoolean()) {
+            throw new CustomChineseException("模拟异常");
+        } else {
+            throw new 自定义中文异常("模拟异常 - 自定义中文异常");
+        }
+    }
     }
 
     // Create a new task
