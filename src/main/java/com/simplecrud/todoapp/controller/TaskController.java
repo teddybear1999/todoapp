@@ -67,7 +67,6 @@ public class TaskController {
             throw new 自定义中文异常("模拟异常 - 自定义中文异常");
         }
     }
-    }
 
     // Create a new task
     @PostMapping
