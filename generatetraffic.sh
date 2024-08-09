@@ -81,8 +81,17 @@ generate_traffic() {
             fi
         fi
 
+        # DELETE TASK WITH ERROR
+        curl -s -X DELETE "http://localhost:8080/tasks/error" > /dev/null
+
+        # GET CHINESE TASKS
+        curl -s http://localhost:8080/tasks/chinese > /dev/null
+
+        # GET RANDOM BOOLEAN TASK
+        curl -s http://localhost:8080/tasks/randomBoolean > /dev/null
+
         # Pause before the next operation
-        sleep 0.1
+        sleep 0.16
     done
 }
 
